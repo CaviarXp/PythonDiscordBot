@@ -1,16 +1,13 @@
-@ -1,2 +1,76 @@
-# BotDiscord
-Little Discord bot/app project
-Do in my free time it's good, i think (´･ω･`)
+# DiscordBot
+Little Discord app/bot project
 
-A Discord bot built with Python (discord.py) featuring prefix commands, slash commands, and an interactive Rock-Paper-Scissors mini-game using Discord UI buttons.
+A Discord bot built with Python (discord.py) featuring prefix commands, slash commands, mini-game using Discord UI buttons.
 
 ---
 
 ## Features
 
-- **Slash & Prefix Commands**: / application commands
-- **Interactive Rock-Paper-Scissors**: Play directly in Discord using interactive button (discord.ui.View).
+- **Slash & Prefix Commands**: / application Commands.
 
 ---
 
@@ -19,12 +16,11 @@ A Discord bot built with Python (discord.py) featuring prefix commands, slash co
 | Command | Type | Description |
 | :--- | :--- | :--- |
 | /ping | Slash Command | Checks bot responsiveness (replies with pong!). |
-| /rps | Slash Command | Starts an interactive Rock-Paper-Scissors gamewith clickable buttons. |
-
+| /rps | Slash Command | Starts Rock-Paper-Scissors game. |
+| /xo | Slash Command | Starts XO game. (with anyone that click เข้าร่วม/join)|
 ---
 
 ## Installation
-
 
 ### Install Dependencies
 ```bash

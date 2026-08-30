@@ -127,13 +127,13 @@ class XoView(discord.ui.View):
                 )
                 return True
 
-            if "-" not in self.board:
-                    await interaction.response.edit_message(
-                        content='จบล่ะโห่เสมอกันกากทั้งคู่',
-                    view=None
+        if "-" not in self.board:
+                await interaction.response.edit_message(
+                    content='จบล่ะโห่เสมอกันกากทั้งคู่',
+                view=None
                 )
-            return True
-
+                return True
+    
         return False
 
     @discord.ui.button(label='เข้าร่วมเกม', style=discord.ButtonStyle.green, custom_id='join')
