@@ -99,7 +99,7 @@ class XoView(discord.ui.View):
             self.current_turn = self.player_o if self.current_turn == self.player_x else self.player_x
 
             await interaction.response.edit_message(
-                content=f'ตากูอ้าาา!ไม่นะ **ตาของ {self.current_turn.display_name}',
+                content=f'ตากูอ้าาา!ไม่นะ ตาของ **{self.current_turn.display_name}**',
                 view=self
             )
 
@@ -111,13 +111,6 @@ class XoView(discord.ui.View):
             (0, 3, 6),(1, 4, 7),(2, 5, 8),
             (0, 4, 8),(2, 4, 6),
         ]
-
-        if "-" not in self.board:
-            await interaction.response.edit_message(
-                content='จบล่ะโห่เสมอกันกากทั้งคู่',
-                view=None
-            )
-            return True
 
         for a, b, c in wins:
             if self.board[a] == self.board[b] == self.board[c] != "-":
@@ -133,7 +126,14 @@ class XoView(discord.ui.View):
                     view=None
                 )
                 return True
-            
+
+            if "-" not in self.board:
+                    await interaction.response.edit_message(
+                        content='จบล่ะโห่เสมอกันกากทั้งคู่',
+                    view=None
+                )
+            return True
+
         return False
 
     @discord.ui.button(label='เข้าร่วมเกม', style=discord.ButtonStyle.green, custom_id='join')
