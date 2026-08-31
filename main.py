@@ -71,7 +71,9 @@ class XoView(discord.ui.View):
         self.board = ["-"] * 9
         self.current_turn = player_x
 
-
+        async def on_timeout(self):
+            for item in self.children:
+                item.disabled = True
 
     def make_callback(self, index):
         async def button_callback(interaction: discord.Interaction):
@@ -118,7 +120,7 @@ class XoView(discord.ui.View):
                 winner = self.player_x if winner_symbol == "❌" else self.player_o
 
                 for child in self.children:
-                    if isinstance(child, discord.ui.Button) and child.custom_id and child.custom_id.startswith("xo_"):
+                    if isinstance(child, discord.ui.Button) and child.custom_id is not None:
                         child.disabled = True
                 
                 await interaction.response.edit_message(
@@ -150,7 +152,7 @@ class XoView(discord.ui.View):
                 label="-",
                 style=discord.ButtonStyle.gray,
                 row=i // 3,
-                custom_id=f"xo_{i}"
+                custom_id=f"{i}"
             )
             button.callback = self.make_callback(i)
             self.add_item(button)
