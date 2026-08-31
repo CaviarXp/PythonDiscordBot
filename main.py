@@ -89,7 +89,7 @@ class XoView(discord.ui.View):
             self.board[index] = symbol
 
             for child in self.children:
-                if isinstance(child, discord.ui.Button) and child.custom_id == f"xo_{index}":
+                if isinstance(child, discord.ui.Button) and child.custom_id == f"{index}":
                     child.label=symbol
                     child.style=discord.ButtonStyle.green
                     child.disabled=True
